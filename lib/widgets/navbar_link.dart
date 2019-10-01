@@ -14,29 +14,30 @@ class NavbarLink extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 1,
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
-        child: ConstrainedBox(
-          constraints: BoxConstraints(maxHeight: 50, maxWidth: 100),
-          child: FittedBox(
-            alignment: Alignment.center,
-            fit: BoxFit.fitHeight,
-            child: GestureDetector(
-              onTap: () {
-                Provider.of<NavigatorProvider>(context).currentRoute = route;
-              },
-              child: Text(
-                textString,
-                style: TextStyle(
-                  fontFamily: "Roboto",
-                  color: Provider.of<NavigatorProvider>(context).currentRoute == route
-                      ? Colors.red
-                      : Colors.blue,
-                  decoration: TextDecoration.none,
-                ),
-              ),
+    return Padding(
+      padding: const EdgeInsets.all(10),
+      child: ConstrainedBox(
+        
+        constraints: BoxConstraints(
+          minHeight: 50,
+          minWidth: 50,
+          maxHeight: 100,
+          maxWidth: 150,
+        ),
+        child: GestureDetector(
+          onTap: () {
+            Provider.of<NavigatorProvider>(context).currentRoute = route;
+          },
+          child: Text(
+            textString,
+            style: TextStyle(
+              fontSize: 30,
+              fontFamily: "Roboto",
+              color: Provider.of<NavigatorProvider>(context).currentRoute ==
+                      route
+                  ? Colors.red
+                  : Colors.blue,
+              decoration: TextDecoration.none,
             ),
           ),
         ),

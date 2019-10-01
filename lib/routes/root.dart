@@ -20,16 +20,19 @@ class Root extends StatelessWidget {
       case "/Home":
         route = Home();
         break;
-      case "/About":
+  case "/About":
         route = About();
         break;
     }
     
-    return Column(
-      children: <Widget>[
-        Navbar(),
-        route,
-      ],
+    return Material(
+      color: Theme.of(context).backgroundColor,
+      child: ListView(
+        children: <Widget>[
+          Navbar(),
+          route,
+        ],
+      ),
     );
   }
 }
