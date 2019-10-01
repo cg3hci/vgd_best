@@ -1,0 +1,4 @@
+#Tue Oct 01 11:56:37 CEST 2019
+base.0=A\:\\Development\\WebDev\\vgd_best\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

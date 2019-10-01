@@ -28,7 +28,8 @@ class NavbarLink extends StatelessWidget {
           onTap: () {
             Provider.of<NavigatorProvider>(context).currentRoute = route;
           },
-          child: Text(
+          child: 
+          Text(
             textString,
             style: TextStyle(
               fontSize: 30,
