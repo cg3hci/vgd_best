@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vgd_best/routes/about.dart';
+import 'package:vgd_best/routes/games.dart';
 import 'package:vgd_best/routes/home.dart';
 import 'package:vgd_best/state/navigator_provider.dart';
 import 'package:vgd_best/widgets/navbar.dart';
@@ -20,8 +21,11 @@ class Root extends StatelessWidget {
       case "/Home":
         route = Home();
         break;
-  case "/About":
+      case "/About":
         route = About();
+        break;
+      case "/Games":
+        route = Games();
         break;
     }
     
