@@ -12,15 +12,15 @@ const responsive = {
   },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 3
+    items: 1
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 3
+    items: 1
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 3
+    items: 1
   }
 };
 
@@ -40,7 +40,7 @@ const Home = () => (
       infinite={true}
       autoPlay={true}
       autoPlaySpeed={3000}
-      partial={true}
+      centerMode={true}
       containerClass="container"
     >
         <img className="slide_image" src={placeholder} />
@@ -52,6 +52,7 @@ const Home = () => (
       {`
         .container {
           width: width:90%;
+          height:400px;
         }
       `}
     </style>
