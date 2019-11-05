@@ -12,15 +12,15 @@ const responsive = {
   },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 1
+    items: 3
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 1
+    items: 3
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 1
+    items: 3
   }
 };
 
@@ -41,7 +41,6 @@ const Home = () => (
       autoPlay={true}
       autoPlaySpeed={3000}
       partial={true}
-      itemClass="image-item"
       containerClass="container"
     >
         <img className="slide_image" src={placeholder} />
@@ -51,10 +50,8 @@ const Home = () => (
     </Carousel>
     <style jsx global>
       {`
-        .image-item {
-        }
         .container {
-          width: width:100%;
+          width: width:90%;
         }
       `}
     </style>
@@ -64,6 +61,7 @@ const Home = () => (
           text-align: center;
         }
         .slide_image {
+          width:90%;
           user-drag: none;
           user-select: none;
           -moz-user-select: none;
