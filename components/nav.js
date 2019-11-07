@@ -16,7 +16,7 @@ const Nav = () => (
   <nav>
     <ul>
       <li>
-        <Link href="/">
+        <Link key="root" href="" as="/">
           <a>Home</a>
         </Link>
       </li>
