@@ -5,16 +5,29 @@ import Nav from "../../components/nav";
 export default function Game(props) {
   const router = useRouter();
   const authors = props.authors;
+  const description =  props.description;
+  const image = props.image;
   return authors ? (
     <div>
-      <Nav/>
-      <h1>Game name: {router.query.name}</h1>
+      <Nav />
+      <img src={image}/>
+      <h1>Game name: </h1>
+      <p>{router.query.name}</p>
       <h2>Authors:</h2>
       <ul>
         {authors.map(({ name, key }) => (
           <li key={key}>{name}</li>
         ))}
       </ul>
+      <h2>Description:</h2>
+      {description}
+      <style jsx>
+        {`
+          img {
+            width:100%;
+          }
+        `}
+      </style>
     </div>
   ) : (
     <p>Game not found</p>
@@ -29,8 +42,12 @@ Game.getInitialProps = async ({ query, item }) => {
     .where("Name", "==", query.name)
     .get();
   var authors;
-  res.forEach(doc => {
-    authors = doc.get("Authors");
+  var image;
+  var description;
+  res.forEach(game => {
+    image = game.get("PromoImage");
+    authors = game.get("Authors");
+    description = game.get("Description");
     authors = authors.map(author => {
       return {
         name: author,
@@ -38,5 +55,5 @@ Game.getInitialProps = async ({ query, item }) => {
       };
     });
   });
-  return { authors: authors };
+  return { authors: authors, image: image, description: description };
 };
