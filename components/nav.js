@@ -1,19 +1,22 @@
-import React from 'react'
-import Link from 'next/link'
+import React from "react";
+import Link from "next/link";
 
 const links = [
-  { href: 'https://elearning.unica.it/course/view.php?id=195', label: 'E-Learning VGD' },
-  { href: 'https://github.com/cg3hci/vgd_best', label: 'GitHub' }
+  {
+    href: "https://elearning.unica.it/course/view.php?id=195",
+    label: "E-Learning VGD"
+  },
+  { href: "https://github.com/cg3hci/vgd_best", label: "GitHub" }
 ].map(link => {
-  link.key = `nav-link-${link.href}-${link.label}`
-  return link
-})
+  link.key = `nav-link-${link.href}-${link.label}`;
+  return link;
+});
 
 const Nav = () => (
   <nav>
     <ul>
       <li>
-        <Link href='/'>
+        <Link href="/">
           <a>Home</a>
         </Link>
       </li>
@@ -51,6 +54,6 @@ const Nav = () => (
       }
     `}</style>
   </nav>
-)
+);
 
-export default Nav
+export default Nav;

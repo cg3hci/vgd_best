@@ -1,16 +1,18 @@
 import { useRouter } from "next/router";
 import { loadDB } from "../../lib/db";
+import Nav from "../../components/nav";
 
 export default function Game(props) {
   const router = useRouter();
   const authors = props.authors;
   return authors ? (
     <div>
+      <Nav/>
       <h1>Game name: {router.query.name}</h1>
       <h2>Authors:</h2>
       <ul>
-        {authors.map(({ name }) => (
-          <li>{name}</li>
+        {authors.map(({ name, key }) => (
+          <li key={key}>{name}</li>
         ))}
       </ul>
     </div>
