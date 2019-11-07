@@ -24,7 +24,8 @@ const responsive = {
 
 const placeholder = "https://via.placeholder.com/1000x500";
 
-const GameCarousel = () => (
+const GameCarousel = (props) => {
+  return (
   <div>
     <Carousel
       showDots={true}
@@ -37,18 +38,14 @@ const GameCarousel = () => (
       draggable={false}
       containerClass="container"
     >
-      <Link href="/game">
+    {props.names.map(({ name }) => (
+      <Link href="/game/[id]" as={`/game/${name}`}>
+      <div>
         <img className="slide_image" src={placeholder} />
+        <p>{name}</p>
+      </div>
       </Link>
-      <Link href="/game">
-        <img className="slide_image" src={placeholder} />
-      </Link>
-      <Link href="/game">
-        <img className="slide_image" src={placeholder} />
-      </Link>
-      <Link href="/game">
-        <img className="slide_image" src={placeholder} />
-      </Link>
+    ))}
     </Carousel>
     <style jsx global>
       {`
@@ -74,6 +71,7 @@ const GameCarousel = () => (
       `}
     </style>
   </div>
-);
+)};
+
 
 export default GameCarousel;

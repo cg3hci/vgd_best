@@ -1,26 +1,26 @@
 import { useRouter } from "next/router";
 import { loadDB } from "../../lib/db";
-import { debug } from "util";
 
 export default function Game(props) {
   const router = useRouter();
   const authors = props.authors;
-  return (
+  return authors ? (
     <div>
-      <h1>{router.query.name}</h1>
-      {authors.map(({ name }) => (
-        <p>{name}</p>
-      ))}
+      <h1>Game name: {router.query.name}</h1>
+      <h2>Authors:</h2>
+      <ul>
+        {authors.map(({ name }) => (
+          <li>{name}</li>
+        ))}
+      </ul>
     </div>
+  ) : (
+    <p>Game not found</p>
   );
 }
 
-Game.getInitialProps = async ({ query }) => {
-  console.log(`Da qui: ${query}`);
-  console.log(query);
-  console.log("^");
+Game.getInitialProps = async ({ query, item }) => {
   const db = loadDB();
-
   const res = await db
     .firestore()
     .collection("games")
@@ -28,16 +28,13 @@ Game.getInitialProps = async ({ query }) => {
     .get();
   var authors;
   res.forEach(doc => {
-    authors = doc.data()["Authors"];
-    console.log(authors);
+    authors = doc.get("Authors");
     authors = authors.map(author => {
       return {
         name: author,
         key: author
       };
     });
-    console.log(authors);
   });
-
-  return { authors: authors }; // Needed to have SSR query name
+  return { authors: authors };
 };
