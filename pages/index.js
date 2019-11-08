@@ -3,6 +3,7 @@ import Head from "next/head";
 import Nav from "../components/nav";
 import GameCarousel from "../components/game_carousel";
 import { loadDB } from "../lib/db";
+import MainPageDescription from "../components/main_page_description";
 
 const Home = props => (
   <div>
@@ -12,6 +13,7 @@ const Home = props => (
     </Head>
     <Nav />
     <GameCarousel names={props.games} />
+    <MainPageDescription/>
   </div>
 );
 
