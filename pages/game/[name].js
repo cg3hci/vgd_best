@@ -5,12 +5,14 @@ import Nav from "../../components/nav";
 export default function Game(props) {
   const router = useRouter();
   const authors = props.authors;
-  const description =  props.description;
+  const description = props.description;
   const image = props.image;
   return authors ? (
     <div>
       <Nav />
-      <img src={image}/>
+      <div className="imageContainer">
+        <img src={image} />
+      </div>
       <h1>Game name: </h1>
       <p>{router.query.name}</p>
       <h2>Authors:</h2>
@@ -23,8 +25,19 @@ export default function Game(props) {
       {description}
       <style jsx>
         {`
-          img {
-            width:100%;
+        @media only screen and (max-width: 1500px){
+          .imageContainer img {
+            width:auto;
+            height:30vw;
+          }
+        }
+        @media only screen and (min-width: 1500px)
+          .imageContainer img {
+            width:40vw;
+            height:auto;
+          }
+          .imageContainer {
+            text-align: center;
           }
         `}
       </style>

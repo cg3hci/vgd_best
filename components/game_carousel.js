@@ -4,9 +4,13 @@ import Link from "next/link";
 
 const responsive = {
   small: {
-    breakpoint: { max: 15000, min: 0 },
+    breakpoint: { max: 1500, min: 0 },
     items: 1
-  }
+  },
+  medium: {
+    breakpoint: { max: 15000, min: 1500 },
+    items: 3
+  },
 };
 
 const GameCarousel = props => {
@@ -44,7 +48,7 @@ const GameCarousel = props => {
             -ms-user-select: none;
           }
           .item img {
-            width: 100%;
+            width: 98%;
           }
         `}
       </style>
